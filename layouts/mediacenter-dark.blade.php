@@ -24,7 +24,6 @@
 
         <!-- JavaScripts placed at the end of the document so the pages load faster -->
         {{ Theme::partial('defaultjs') }}
-        {{-- Theme::asset()->scripts() --}} 
         {{ Theme::asset()->container('footer')->scripts() }}
         {{ Theme::partial('analytic') }}
     </body>
