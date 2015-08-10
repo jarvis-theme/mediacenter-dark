@@ -2,7 +2,7 @@ var dirTema = document.getElementsByTagName('link')[1].getAttribute('href');
 
 require.config({
 	baseUrl: '/',
-    urlArgs: "v=003",
+    urlArgs: "v=001",
 	waitSeconds: 150,
 	shim: {
 		"bootstrap"	: {
@@ -67,7 +67,7 @@ require.config({
 	paths: {
 		// LIBRARY
 		jquery 				: ['//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min',dirTema+'assets/js/libs/jquery-1.10.2.min'],
-		bootstrap			: ['//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min',dirTema+'assets/js/libs/bootstrap.min'],
+		bootstrap			: ['//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min',dirTema+'assets/js/libs/bootstrap.min'],
 		bootstrap_dropdown	: dirTema+'assets/js/libs/bootstrap-hover-dropdown.min',
 		bootstrap_slider	: dirTema+'assets/js/libs/bootstrap-slider.min',
 		cart				: 'js/shop_cart',

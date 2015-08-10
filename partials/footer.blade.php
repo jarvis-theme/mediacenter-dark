@@ -51,7 +51,7 @@
                         </ul>
                         @if(!empty($kontak->ym))
                         <div id="ym">
-                        {{ymyahoo($kontak->ym)}}
+                            {{ymyahoo($kontak->ym)}}
                         </div>
                         @endif
                     </div><!-- /.social-icons -->
