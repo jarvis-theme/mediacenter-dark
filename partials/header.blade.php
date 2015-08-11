@@ -89,20 +89,33 @@
                 <div class="collapse navbar-collapse" id="mc-horizontal-menu-collapse">
                 @if(count(list_category()) > 0)
                     <ul class="nav navbar-nav">  
-                    @foreach(list_category() as $side_menu)
-                    @if($side_menu->parent == '0')
-                        @if(count($side_menu->anak) >= 1)
+                    @foreach(list_category() as $menu)
+                    @if($menu->parent == '0')
+                        @if(count($menu->anak) >= 1)
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{short_description($side_menu->nama,20)}} <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{short_description($menu->nama,20)}} <span class="caret"></span></a>
                         @else
                         <li>
-                            <a href="{{category_url($side_menu)}}" class="dropdown-toggle">{{short_description($side_menu->nama,20)}}</a>
+                            <a href="{{category_url($menu)}}" class="dropdown-toggle">{{short_description($menu->nama,20)}}</a>
                         @endif
-                            @if($side_menu->anak->count() != 0)
+                            @if($menu->anak->count() != 0)
                             <ul class="dropdown-menu">
-                                @foreach($side_menu->anak as $submenu)
-                                @if($submenu->parent == $side_menu->id)
-                                <li><a href="{{category_url($submenu)}}">{{short_description($submenu->nama,20)}}</a></li>
+                                @foreach($menu->anak as $submenu)
+                                @if($submenu->parent == $menu->id)
+                                <li>
+                                    @if(count($submenu->anak) == 0)
+                                    <a href="{{category_url($submenu)}}">{{short_description($submenu->nama,20)}}</a>
+                                    @elseif(count($submenu->anak) >= 1)
+                                    <a class="trigger right-caret" role="button" data-toggle="dropdown">{{short_description($submenu->nama,20)}}</a>
+                                    <ul class="dropdown-menu sub-menu">
+                                    @foreach(list_category() as $key2=>$submenu2)
+                                        @if($submenu->id == $submenu2->parent)        
+                                        <li><a class="trigger" href="{{ category_url($submenu2) }}">{{ $submenu2->nama }}</a></li>
+                                        @endif
+                                    @endforeach
+                                    </ul>
+                                    @endif
+                                </li>
                                 @endif
                                 @endforeach
                             </ul>
