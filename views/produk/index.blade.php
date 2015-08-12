@@ -31,10 +31,10 @@
                         <div class="accordion-heading">
                             @if(count($side_menu->anak) >= 1)
                             <a class="accordion-toggle collapsed" data-toggle="collapse" href="#{{short_description(preg_replace('/[^a-zA-Z0-9-]/', '', $side_menu->nama),23)}}">
-                             @else
+                            @else
                             <a class="collapsed" href="{{category_url($side_menu)}}">
                             @endif  
-                                {{short_description($side_menu->nama,23)}}
+                                {{$side_menu->nama}}
                             </a>
                         </div>
                         @if($side_menu->anak->count() != 0)
@@ -45,18 +45,14 @@
                                     @if($submenu->parent == $side_menu->id)
                                     <li>
                                         <div class="accordion-heading">
-                                            @if(count($submenu->anak) >= 1)
-                                            <a href="#{{short_description($submenu->nama,20)}}" data-toggle="collapse">{{short_description($submenu->nama,20)}}</a>
-                                            @else
-                                            <a href="{{category_url($submenu)}}" >{{short_description($submenu->nama,20)}}</a>
-                                            @endif
+                                            <a href="{{category_url($submenu)}}" >{{$submenu->nama}}</a>
                                         </div>
                                         @if($submenu->anak->count() != 0)
-                                        <div id="{{short_description($submenu->nama,20)}}" class="accordion-body collapse in">
+                                        <div id="{{short_description(preg_replace('/[^a-zA-Z0-9-]/', '', $submenu->nama),23)}}" class="accordion-body collapse in">
                                             <ul>
                                                 @foreach($submenu->anak as $submenu2)
                                                 @if($submenu2->parent == $submenu->id)
-                                                <li><a href="{{category_url($submenu2)}}">{{short_description($submenu2->nama,20)}}</a></li>
+                                                <li><a href="{{category_url($submenu2)}}">{{$submenu2->nama}}</a></li>
                                                 @endif
                                                 @endforeach
                                             </ul>
@@ -114,7 +110,7 @@
                                     @if(!empty($bestproduk->hargaCoret))
                                     <div class="price-prev">{{price($bestproduk->hargaCoret)}}</div>
                                     @endif
-                                    <div class="price-current">{{price($bestproduk->hargaJual)}}</div>
+                                    <div class="price-current">{{!empty($bestproduk->hargaJual) ? price($bestproduk->hargaJual) : "Call for Price"}}</div>
                                 </div>
                             </div>  
                         </div>
@@ -178,9 +174,9 @@
                                         <div class="prices">
                                             @if(!empty($listproduk->hargaCoret))
                                             <div class="price-prev">{{price($listproduk->hargaCoret)}}</div>
-                                            <div class="price-current pull-right">{{price($listproduk->hargaJual)}}</div>
+                                            <div class="price-current pull-right">{{!empty($listproduk->hargaJual) ? price($listproduk->hargaJual) : "Call for Price !!!"}}</div>
                                             @else
-                                            <div class="price-current text-right">{{price($listproduk->hargaJual)}}</div>
+                                                <div class="price-current text-right">{{!empty($listproduk->hargaJual) ? price($listproduk->hargaJual) : "Call for Price !!!"}}</div>
                                             @endif
                                         </div>
                                         <div class="hover-area">
@@ -217,7 +213,7 @@
                                     </div>
                                     <div class="no-margin col-xs-12 col-sm-3 price-area">
                                         <div class="right-clmn">
-                                            <div class="price-current">{{price($listproduk->hargaJual)}}</div>
+                                            <div class="price-current">{{!empty($listproduk->hargaJual) ? price($listproduk->hargaJual) : "Call for Price !!!"}}</div>
                                             @if(!empty($listproduk->hargaCoret))
                                             <div class="price-prev">{{price($listproduk->hargaCoret)}}</div>
                                             @endif

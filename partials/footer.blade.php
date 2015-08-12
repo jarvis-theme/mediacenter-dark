@@ -83,10 +83,10 @@
                     <div class="widget">
                         <h3>Contact</h3>
                         <ul>
-                            <li><i class="fa fa-envelope font-icon"></i><a href="mailto:cs@mediacenter.jstore.co" style="text-transform:none;">cs@mediacenter.jstore.co</a></li>
                             @if(!empty($kontak->email))
                             <li><i class="fa fa-envelope font-icon"></i><a href="mailto:{{$kontak->email}}" style="text-transform:none;">{{$kontak->email}}</a></li>
                             @endif
+                            <li><i class="fa fa-envelope font-icon"></i><a href="mailto:heteroku@gmail.com" style="text-transform:none;">heteroku@gmail.com</a></li>
                             @if(!empty($kontak->telepon))
                             <li><i class="fa fa-phone font-icon"></i><a href="#"> {{$kontak->telepon}}</a></li>
                             @endif
@@ -94,7 +94,7 @@
                             <li><i class="fa fa-phone font-icon"></i><a href="#"> {{$kontak->hp}}</a></li>
                             @endif
                             @if(!empty($kontak->bb))
-                            <li><a href="#"> {{$kontak->bb}}</a></li>
+                            <li><i class="fa fa-comment"></i><a href="#"> {{$kontak->bb}}</a></li>
                             @endif
                         </ul>
                     </div><!-- /.widget -->

@@ -93,10 +93,10 @@
                     @if($menu->parent == '0')
                         @if(count($menu->anak) >= 1)
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{short_description($menu->nama,20)}} <span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$menu->nama}} <span class="caret"></span></a>
                         @else
                         <li>
-                            <a href="{{category_url($menu)}}" class="dropdown-toggle">{{short_description($menu->nama,20)}}</a>
+                            <a href="{{category_url($menu)}}" class="dropdown-toggle">{{$menu->nama}}</a>
                         @endif
                             @if($menu->anak->count() != 0)
                             <ul class="dropdown-menu">
@@ -104,9 +104,9 @@
                                 @if($submenu->parent == $menu->id)
                                 <li>
                                     @if(count($submenu->anak) == 0)
-                                    <a href="{{category_url($submenu)}}">{{short_description($submenu->nama,20)}}</a>
+                                    <a href="{{category_url($submenu)}}">{{$submenu->nama}}</a>
                                     @elseif(count($submenu->anak) >= 1)
-                                    <a class="trigger right-caret" role="button" data-toggle="dropdown">{{short_description($submenu->nama,20)}}</a>
+                                    <a class="trigger right-caret" role="button" data-toggle="dropdown">{{$submenu->nama}}</a>
                                     <ul class="dropdown-menu sub-menu">
                                     @foreach(list_category() as $key2=>$submenu2)
                                         @if($submenu->id == $submenu2->parent)        

@@ -36,7 +36,7 @@
 }
 .sidebar .widget h4,
 .tab-pane article h4{color: #59b210;}
-.control-group,.halaman {background-color: #fff;}
+.control-group,.halaman, .comment-body {background-color: #fff;}
 .search-field{color: #aeaeae;}
 .price-area .right-clmn .availability label{color: #707070}
 .totop {
@@ -73,7 +73,7 @@ span.totop:hover {opacity: 1;}
 span.label {display: inline-block;}
 .label-koleksi {background-color: #fff;margin: 10px 2px 0px;padding: 10px;font-weight: 600;}
 .font-icon, .font-icon:after {margin-right: 5px;}
-.table-member{color: #ececec;}
+.table-member, .respond{color: #ececec;}
 .form-group label,.tabs-description{color: #fff;}
 #description ul{list-style: outside;margin-left: 25px;}
 #description table{margin: 0 auto;border-color: transparent;width: 100% !important;}
@@ -2315,7 +2315,9 @@ header .top-cart-row .top-cart-holder .total-price-basket {
 .brands-carousel .carousel-item a img {
   vertical-align: middle;
   display: inline-block;
-  width: 130px;
+  /*width: 130px;*/
+  max-height: 45px;
+  width: 100%;
 }
 /*===================================================================================*/
 /*  OWL CAROUSEL

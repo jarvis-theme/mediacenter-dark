@@ -3,7 +3,7 @@ var dirTema = document.getElementsByTagName('link')[1].getAttribute('href');
 require.config({
 	baseUrl: '/',
     urlArgs: "v=002",
-	waitSeconds: 150,
+	waitSeconds: 60,
 	shim: {
 		"bootstrap"	: {
 			deps: ['jquery'],

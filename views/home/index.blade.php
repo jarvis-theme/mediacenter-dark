@@ -5,7 +5,7 @@
             @foreach(horizontal_banner() as $banners)
             <div class="col-xs-12 col-lg-12 no-margin banner">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'medium',array('class'=>'banner-image','width'=>'1170'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'banner',array('class'=>'banner-image','width'=>'1170'))}}
                 </a>
             </div>
             @endforeach
@@ -13,7 +13,7 @@
             @foreach(horizontal_banner() as $banners)
             <div class="col-xs-12 col-lg-6 no-margin banner">
                 <a href="{{url($banners->url)}}">
-                    {{HTML::image(banner_image_url($banners->gambar),'medium',array('class'=>'banner-image'))}}
+                    {{HTML::image(banner_image_url($banners->gambar),'banner',array('class'=>'banner-image'))}}
                 </a>
             </div>
             @endforeach
@@ -38,11 +38,11 @@
                         <div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
                             <div class="product-item">
                                 @if(is_outstok($homeproduk))
-                                    <div class="ribbon red"><span>kosong</span></div> 
+                                    <div class="ribbon red"><span>Kosong</span></div> 
                                 @elseif(is_terlaris($homeproduk))
                                     <div class="ribbon green"><span>Terlaris</span></div>
                                 @elseif(is_produkbaru($homeproduk))
-                                    <div class="ribbon blue"><span>baru</span></div>
+                                    <div class="ribbon blue"><span>Baru</span></div>
                                 @endif
                                 <div class="image">
                                     {{HTML::image(product_image_url($homeproduk->gambar1,'medium'),$homeproduk->nama,array('height'=>'186'))}}
@@ -59,9 +59,9 @@
                                     <div class="price-prev">
                                         {{price($homeproduk->hargaCoret)}}
                                     </div>
-                                    <div class="price-current pull-right">{{price($homeproduk->hargaJual)}}</div>
+                                    <div class="price-current pull-right">{{!empty($homeproduk->hargaJual) ? price($homeproduk->hargaJual) : "Call for Price"}}</div>
                                     @else
-                                    <div class="price-current text-right">{{price($homeproduk->hargaJual)}}</div>
+                                    <div class="price-current text-right">{{!empty($homeproduk->hargaJual) ? price($homeproduk->hargaJual) : "Call for Price"}}</div>
                                     @endif
                                 </div>
                                 <div class="hover-area">
@@ -100,9 +100,9 @@
                                     <div class="price-prev">
                                         {{price($newProduk->hargaCoret)}}
                                     </div>
-                                    <div class="price-current pull-right">{{price($newProduk->hargaJual)}}</div>
+                                    <div class="price-current pull-right">{{!empty($newProduk->hargaJual) ? price($newProduk->hargaJual) : "Call for Price"}}</div>
                                     @else
-                                    <div class="price-current text-right">{{price($newProduk->hargaJual)}}</div>
+                                    <div class="price-current text-right">{{!empty($newProduk->hargaJual) ? price($newProduk->hargaJual) : "Call for Price"}}</div>
                                     @endif
                                 </div>
                                 <div class="hover-area">
@@ -142,8 +142,9 @@
                                     <div class="price-prev">
                                         {{price($bestProduk->hargaCoret)}}
                                     </div>
+                                    <div class="price-current pull-right">{{!empty($bestProduk->hargaJual) ? price($bestProduk->hargaJual) : "Call for Price"}}</div>
                                     @endif
-                                    <div class="price-current pull-right">{{price($bestProduk->hargaJual)}}</div>
+                                    <div class="price-current text-right">{{!empty($bestProduk->hargaJual) ? price($bestProduk->hargaJual) : "Call for Price"}}</div>
                                 </div>
                                 <div class="hover-area">
                                     <div class="add-cart-button">
@@ -186,7 +187,7 @@
                         @elseif(is_terlaris($listproduk))
                             <div class="ribbon green"><span>Terlaris</span></div>
                         @elseif(is_produkbaru($listproduk))
-                            <div class="ribbon blue"><span>baru</span></div>
+                            <div class="ribbon blue"><span>Baru</span></div>
                         @endif
                         <div class="image">
                             <div class="wrap-bestproduk">
@@ -200,7 +201,7 @@
                             <div class="brand"><!-- Sharp --></div>
                         </div>
                         <div class="prices">
-                            <div class="price-current text-right">{{price($listproduk->hargaJual)}}</div>
+                            <div class="price-current text-right">{{!empty($listproduk->hargaJual) ? price($listproduk->hargaJual) : "Call for Price"}}</div>
                         </div>
                         <div class="hover-area">
                             <div class="add-cart-button">
