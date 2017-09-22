@@ -20,32 +20,39 @@
                         <ul>
                             @if(!empty($kontak->fb))
                             <li>
-                                <a title="Facebook" href="{{url($kontak->fb)}}" class="fa fa-facebook"></a>
+                                <a title="Facebook" href="{{url($kontak->fb)}}" class="fa fa-facebook" target="_blank"></a>
                             </li>
                             @endif
                             @if(!empty($kontak->tw))
                             <li>
-                                <a title="Twitter" href="{{url($kontak->tw)}}" class="fa fa-twitter"></a>
+                                <a title="Twitter" href="{{url($kontak->tw)}}" class="fa fa-twitter" target="_blank"></a>
                             </li >
                             @endif
                              @if(!empty($kontak->pt))
                             <li>
-                                <a title="Pinterest" href="{{url($kontak->pt)}}" class="fa fa-pinterest "></a>
+                                <a title="Pinterest" href="{{url($kontak->pt)}}" class="fa fa-pinterest" target="_blank"></a>
                             </li>
                             @endif
                             @if(!empty($kontak->gp))
                             <li>
-                                <a title="Google Plus" href="{{url($kontak->gp)}}" class="fa fa-google-plus "></a>
+                                <a title="Google Plus" href="{{url($kontak->gp)}}" class="fa fa-google-plus" target="_blank"></a>
                             </li>
                             @endif
                             @if(!empty($kontak->tl))
                             <li>
-                                <a title="Tumblr" href="{{url($kontak->tl)}}" class="fa fa-tumblr "></a>
+                                <a title="Tumblr" href="{{url($kontak->tl)}}" class="fa fa-tumblr" target="_blank"></a>
                             </li>
                             @endif
                             @if(!empty($kontak->ig))
                             <li>
-                                <a title="Instagram" href="{{url($kontak->ig)}}" class="fa fa-instagram "></a>
+                                <a title="Instagram" href="{{url($kontak->ig)}}" class="fa fa-instagram" target="_blank"></a>
+                            </li>
+                            @endif
+                            @if(!empty($kontak->picmix))
+                            <li>
+                                <a title="Picmix" href="{{url($kontak->picmix)}}" class="picmix" target="_blank">
+                                    <img class="picmix" src="//d3kamn3rg2loz7.cloudfront.net/blogs/event/icon-picmix.png">
+                                </a>
                             </li>
                             @endif
                         </ul>
@@ -86,7 +93,6 @@
                             @if(!empty($kontak->email))
                             <li><i class="fa fa-envelope font-icon"></i><a href="mailto:{{$kontak->email}}" style="text-transform:none;">{{$kontak->email}}</a></li>
                             @endif
-                            <li><i class="fa fa-envelope font-icon"></i><a href="mailto:heteroku@gmail.com" style="text-transform:none;">heteroku@gmail.com</a></li>
                             @if(!empty($kontak->telepon))
                             <li><i class="fa fa-phone font-icon"></i><a href="#"> {{$kontak->telepon}}</a></li>
                             @endif
@@ -94,7 +100,7 @@
                             <li><i class="fa fa-phone font-icon"></i><a href="#"> {{$kontak->hp}}</a></li>
                             @endif
                             @if(!empty($kontak->bb))
-                            <li><i class="fa fa-comment"></i><a href="#"> {{$kontak->bb}}</a></li>
+                            <li><i class="fa fa-comment"></i><a href="#" title="BBM"> {{$kontak->bb}}</a></li>
                             @endif
                         </ul>
                     </div><!-- /.widget -->
@@ -114,15 +120,26 @@
                 <div class="payment-methods ">
                     <ul>
                         @foreach(list_banks() as $value)
+                        @if($value->status == 1)
                         <li><img title="{{$value->bankdefault->nama}}" alt="{{$value->bankdefault->nama}}" src="{{bank_logo($value)}}"></li>
+                        @endif
                         @endforeach
                         @foreach(list_payments() as $pay)
                             @if($pay->nama == 'ipaymu' && $pay->aktif == 1)
                             <li><img title="Ipaymu" alt="Ipaymu" src="{{url('img/bank/ipaymu.jpg')}}"></li>
                             @endif
+                            @if($pay->nama == 'bitcoin' && $pay->aktif == 1)
+                            <li><img alt="Bitcoin" title="Bitcoin" src="{{url('img/bitcoin.png')}}" /></li>
+                            @endif
+                            @if($pay->nama == 'paypal' && $pay->aktif == 1)
+                            <img alt="Paypal" title="Paypal" src="{{url('img/bank/paypal.png')}}" />
+                            @endif
                         @endforeach
                         @if(count(list_dokus()) > 0 && list_dokus()->status == 1)
                         <li><img title="Doku" alt="Doku" src="{{url('img/bank/doku.jpg')}}"></li>
+                        @endif
+                        @if(count(list_veritrans()) > 0 && list_veritrans()->status == 1 && list_veritrans()->type == 1)
+                        <li><img src="{{url('img/bank/midtrans.png')}}" alt="Midtrans" title="Midtrans"></li>
                         @endif
                     </ul>
                 </div><!-- /.payment-methods -->

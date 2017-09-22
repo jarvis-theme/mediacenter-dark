@@ -38,7 +38,7 @@
                             </div>
                             <div class="col-xs-9 col-sm-9">
                                 <div class="post-content">
-                                    <h2 class="post-title">{{$blogs->judul}}</h2>
+                                    <h2 class="post-title"><a href="{{blog_url($blogs)}}">{{$blogs->judul}}</a></h2>
                                     <ul class="meta">
                                         @if(!empty($blogs->kategori->nama))
                                         <li><a href="{{blog_category_url(@$blogs->kategori)}}">{{@$blogs->kategori->nama}}</a></li>

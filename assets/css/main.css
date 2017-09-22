@@ -1950,6 +1950,7 @@ header .top-cart-row .top-cart-holder .total-price-basket {
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
+.le-links li a.active { color: #59b210; }
 .accordion-widget {
   margin: 0 0 38px 0;
 }
@@ -4488,6 +4489,8 @@ header .top-cart-row .top-cart-holder .total-price-basket {
   width: 75px;
   overflow: hidden;
 }
+#blog .post-title a:hover { color: #fff; }
+
 /* Owl Carousel for Blog Post with Gallery */
 .owl-carousel-blog {
   margin-bottom: 30px;
@@ -5054,6 +5057,8 @@ header .top-cart-row .top-cart-holder .total-price-basket {
   -ms-filter: grayscale(100%);
   margin-top: -4px;
 }
+footer .social-icons li a.picmix { padding: 0; }
+footer .social-icons li a.picmix img { width: 27px; }
 /*===================================================================================*/
 /*  Browser Specific Styles
 /*===================================================================================*/

@@ -1,16 +1,16 @@
 <main id="contact-us" class="inner-bottom-md">
 	<div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <section class="section leave-a-message">
-                    <h2 class="bordered">Register</h2>
-                    {{Form::open(array('url'=>'member','method'=>'post','class'=>'form-horizontal'))}}
+		<div class="row">
+			<div class="col-md-6">
+				<section class="section leave-a-message">
+					<h2 class="bordered">Register</h2>
+					{{Form::open(array('url'=>'member','method'=>'post','class'=>'form-horizontal'))}}
 						<div class="form-group">
 							<label for="inputName" class="col-lg-2">Nama</label>
 							<div class="col-lg-10">
 								<input type="text" class="le-input" id="inputName" name="nama" value="{{Input::old('nama')}}" required>
 							</div>
-						</div>                           
+						</div>
 						<div class="form-group">
 							<label for="inputEmail1" class="col-lg-2">Email</label>
 							<div class="col-lg-10">
@@ -58,7 +58,7 @@
 							<div class="col-lg-10">
 								<input type="text" class="le-input" id="inputpos1" name='kodepos' value='{{Input::old("kodepos")}}' >
 							</div>
-						</div>                      
+						</div>
 						<div class="form-group">
 							<label for="inputpho1" class="col-lg-2">Telepon</label>
 							<div class="col-lg-10">
@@ -93,20 +93,20 @@
 							</div>
 						</div>
 					{{Form::close()}}
-                </section><!-- /.leave-a-message -->
-            </div><!-- /.col -->
+				</section><!-- /.leave-a-message -->
+			</div><!-- /.col -->
 
-            <div class="col-md-6">
-                <section class="our-store section inner-left-xs">
-                    <h2 class="bordered">Login</h2>
-                    <h4>Sudah Terdaftar ?</h4>
-                    <p>Silahkan login:</p>
-                    
-                    <div class="buttons-holder">
-                        <a href="{{url('member')}}" class="le-button huge">Login</a>
-                    </div><!-- /.buttons-holder -->
-                </section><!-- /.our-store -->
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-    </div>
+			<div class="col-md-6">
+				<section class="our-store section inner-left-xs">
+					<h2 class="bordered">Login</h2>
+					<h4>Sudah Terdaftar ?</h4>
+					<p>Silahkan login:</p>
+					
+					<div class="buttons-holder">
+						<a href="{{url('member')}}" class="le-button huge">Login</a>
+					</div><!-- /.buttons-holder -->
+				</section><!-- /.our-store -->
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div>
 </main>

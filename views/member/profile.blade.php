@@ -1,29 +1,29 @@
 <section class="sidebar-page">
-    <div class="container">
-        <!-- ========================================= SIDEBAR ========================================= -->
-        <div class="col-xs-12 col-sm-3 no-margin sidebar narrow">
+	<div class="container">
+		<!-- ========================================= SIDEBAR ========================================= -->
+		<div class="col-xs-12 col-sm-3 no-margin sidebar narrow">
 			<div class="widget">
-			    <h1 class="border">Categories</h1>
-			    <div class="body">
-			        <ul class="le-links">
-			            <li><a href="{{url('member')}}">Order History</a></li>
-			            <li><a href="{{url('member/profile/edit')}}">Edit Profile</a></li>
-			        </ul><!-- /.le-links -->
-			    </div>
-			</div>            
-        </div>
-        <!-- ========================================= SIDEBAR : END ========================================= -->
+				<h1 class="border">Categories</h1>
+				<div class="body">
+					<ul class="le-links">
+						<li><a href="{{url('member')}}">Order History</a></li>
+						<li><a class="active">Edit Profile</a></li>
+					</ul><!-- /.le-links -->
+				</div>
+			</div>
+		</div>
+		<!-- ========================================= SIDEBAR : END ========================================= -->
 
-        <!-- ========================================= CONTENT ========================================= -->
-        <div class="col-xs-12 col-sm-9 no-margin wide  sidebar page-main-content">
-            <h1 class="border">Profile</h1>
-            {{Form::open(array('url'=>'member/update','method'=>'put','class'=>'form-horizontal'))}}
+		<!-- ========================================= CONTENT ========================================= -->
+		<div class="col-xs-12 col-sm-9 no-margin wide  sidebar page-main-content">
+			<h1 class="border">Profile</h1>
+			{{Form::open(array('url'=>'member/update','method'=>'put','class'=>'form-horizontal'))}}
 				<div class="form-group"><br>
 					<label for="inputName" class="col-md-2 control-label">Nama</label>
 					<div class="col-md-4">
 						<input type="text" class="le-input col-xs-12" id="inputName" name="nama" value='{{$user->nama}}' placeholder="Name" required>
 					</div>
-				</div>            
+				</div>
 				<div class="form-group">
 					<label for="inputEmail1" class="col-md-2 control-label">Email</label>
 					<div class="col-md-4">
@@ -41,19 +41,19 @@
 					<div class="col-md-4">
 						{{Form::select('negara',array('' => '-- Pilih Negara --') + $negara , ($user ? $user->negara :(Input::old("negara")? Input::old("negara") :"")), array('required'=>'', 'id'=>'negara', 'class'=>'le-input col-xs-12'))}}
 					</div>
-				</div>      
+				</div>
 				<div class="form-group">
 					<label for="inputCountry" class="col-md-2 control-label">Provinsi</label>
 					<div class="col-md-4">
 						{{Form::select('provinsi',array('' => '-- Pilih Provinsi --') + $provinsi , ($user ? $user->provinsi :(Input::old("provinsi")? Input::old("provinsi") :"")),array('required'=>'','id'=>'provinsi', 'class'=>'le-input col-xs-12'))}}
 					</div>
-				</div>      
+				</div>
 				<div class="form-group">
 					<label for="inputCountry" class="col-md-2 control-label">Kota</label>
 					<div class="col-md-4">
 						{{Form::select('kota',array('' => '-- Pilih Kota --') + $kota , ($user ? $user->kota :(Input::old("kota")? Input::old("kota") :"")),array('required'=>'','id'=>'kota', 'class'=>'le-input col-xs-12'))}}
 					</div>
-				</div>              
+				</div>
 				<div class="form-group">
 					<label for="inputAddress" class="col-md-2 control-label">Alamat</label>
 					<div class="col-md-4">
@@ -76,13 +76,13 @@
 				<div class="form-group">
 					<label for="inputUsername" class="col-md-2 control-label">Password Baru</label>
 					<div class="col-md-4">
-						<input type="password" class="le-input col-xs-12" name="password" id="inputUsername" placeholder="Password">
+						<input type="password" class="le-input col-xs-12" name="password" id="inputUsername" placeholder="Password Baru">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputPassword" class="col-md-2 control-label">Ulang Password</label>
 					<div class="col-md-4">
-						<input type="password" class="le-input col-xs-12" name="password_confirmation" id="inputPassword" placeholder="Password">
+						<input type="password" class="le-input col-xs-12" name="password_confirmation" id="inputPassword" placeholder="Ulang Password">
 					</div>
 				</div>
 				<hr />
@@ -92,7 +92,7 @@
 					</div>
 				</div>
 			{{Form::close()}}
-        </div><!-- /.page-main-content -->
-        <!-- ========================================= CONTENT : END ========================================= -->
-    </div><!-- /.container -->
+		</div><!-- /.page-main-content -->
+		<!-- ========================================= CONTENT : END ========================================= -->
+	</div><!-- /.container -->
 </section>

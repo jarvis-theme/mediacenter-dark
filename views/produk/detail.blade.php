@@ -222,7 +222,7 @@
                         <div class="qnt-holder">
                             <div class="le-quantity">
                                 <a class="minus" href="#reduce"></a>
-                                <input name="qty" readonly="readonly" type="text" value="1">
+                                <input name="qty" readonly="readonly" type="text" value="1" min="1" pattern="[0-9]">
                                 <a class="plus" href="#add"></a>
                             </div>
                             <button id="addto-cart"  class="le-button huge addtocart" type="submit" class="cart">add to cart</button>

@@ -1,22 +1,22 @@
 <section class="sidebar-page">
-    <div class="container">
-        <!-- ========================================= SIDEBAR ========================================= -->
-        <div class="col-xs-12 col-sm-3 no-margin sidebar narrow">
+	<div class="container">
+		<!-- ========================================= SIDEBAR ========================================= -->
+		<div class="col-xs-12 col-sm-3 no-margin sidebar narrow">
 			<div class="widget">
-			    <h1 class="border">Categories</h1>
-			    <div class="body">
-			        <ul class="le-links">
-			            <li><a href="{{url('member')}}">Order History</a></li>
-			            <li><a href="{{url('member/profile/edit')}}">Edit Profile</a></li>
-			        </ul><!-- /.le-links -->
-			    </div>
+				<h1 class="border">Categories</h1>
+				<div class="body">
+					<ul class="le-links">
+						<li><a class="active">Order History</a></li>
+						<li><a href="{{url('member/profile/edit')}}">Edit Profile</a></li>
+					</ul><!-- /.le-links -->
+				</div>
 			</div>
-        </div>
-        <!-- ========================================= SIDEBAR : END ========================================= -->
+		</div>
+		<!-- ========================================= SIDEBAR : END ========================================= -->
 
-        <!-- ========================================= CONTENT ========================================= -->
-        <div class="col-xs-12 col-sm-9 no-margin wide  sidebar page-main-content">
-            <h1 class="border">Detail Order</h1>
+		<!-- ========================================= CONTENT ========================================= -->
+		<div class="col-xs-12 col-sm-9 no-margin wide  sidebar page-main-content">
+			<h1 class="border">Detail Order</h1>
 			@if($pengaturan->checkoutType!=2)
 				@if($order->count() > 0)
 				<div class="table-responsive table-member">
@@ -129,8 +129,8 @@
 						</tbody>
 					</table>
 					<div class="paging-holder">
-                    	<div class="pagination-buttons">
-	                        {{$order->links()}} 
+						<div class="pagination-buttons">
+							{{$order->links()}} 
 						</div>
 					</div>
 					</div>
@@ -154,7 +154,7 @@
 							@foreach ($inquiry as $item)
 							<tr>
 								<td>
-									{{prefixOrder()}}{{$item->kodeInquiry}}
+									{{prefixOrder().$item->kodeInquiry}}
 								</td>
 								<td>
 									{{waktu($item->created_at)}}
@@ -187,7 +187,7 @@
 				</div>
 			@endif
 			<br>
-        </div><!-- /.page-main-content -->
-        <!-- ========================================= CONTENT : END ========================================= -->
-    </div><!-- /.container -->
+		</div><!-- /.page-main-content -->
+		<!-- ========================================= CONTENT : END ========================================= -->
+	</div><!-- /.container -->
 </section>

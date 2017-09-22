@@ -3,7 +3,6 @@
 <meta name="description" content="{{$description}}">
 <meta name="keywords" content="{{$keywords}}">
 <meta name="rating" content="general">
-<meta name="author" content="jarvis-store">
 <meta name="robots" content="index, follow">
 <meta http-equiv="classification" content="Toko online">
 <meta name="url" content="{{URL::current()}}">
@@ -22,3 +21,4 @@
 
 <link rel="canonical" href="{{URL::full()}}">
 <link rel="mediacenter-dark-theme" href="{{dirTemaToko()}}mediacenter-dark/">
+{{ pluginHeader() }}
